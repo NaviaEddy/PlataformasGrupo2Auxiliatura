@@ -32,7 +32,7 @@ private:
 
 	//Clases
 	class APlataformas* PT;
-	//class ABarril* Ba;
+	class ABarril* Ba;
 };
 
 

@@ -4,7 +4,7 @@
 #include "PlataformasSpawnCharacter.h"
 #include "UObject/ConstructorHelpers.h"
 #include "Plataformas.h"
-//#include "Barril.h"
+#include "Barril.h"
 
 APlataformasSpawnGameMode::APlataformasSpawnGameMode()
 {
@@ -37,11 +37,12 @@ void APlataformasSpawnGameMode::BeginPlay()
 		PosicionAuxiliar *= -1;
 	}
 
-	spawnsPlataformas = ContPlataformas.Num() - 1; //4 elementos [0,1,2,3]
+	//spawnsPlataformas = ContPlataformas.Num() - 1;
+	spawnsPlataformas = 0;//4 elementos [0,1,2,3]
 	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Cyan, 
 		FString::Printf(TEXT("Cantidad del contenedor: %d"), ContPlataformas.Num()));
 
-	//Ba = GetWorld()->SpawnActor<ABarril>(ABarril::StaticClass(), FVector(1210.f, 970.f, 1900.f), FRotator::ZeroRotator);
+	
 }
 
 void APlataformasSpawnGameMode::Tick(float DeltaTime)
@@ -51,18 +52,20 @@ void APlataformasSpawnGameMode::Tick(float DeltaTime)
 	Time += DeltaTime;
 
 	//Codigo para eliminar plataformas con un reloj.
-	/*GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue,
-		FString::Printf(TEXT("Cantidad del contenedor: %d"), ContPlataformas.Num()));
+	//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue,
+		//FString::Printf(TEXT("Cantidad del contenedor: %d"), ContPlataformas.Num()));
 
 	if (Time > 3.0f) {
-		if (spawnsPlataformas != -1) {
+		if (spawnsPlataformas != 3) {
+			Ba = GetWorld()->SpawnActor<ABarril>(ABarril::StaticClass(), FVector(1210.f, 970.f, 1900.f), FRotator::ZeroRotator);
 			AActor* plataforma = ContPlataformas[spawnsPlataformas];
 			plataforma->Destroy();
 			ContPlataformas.RemoveAt(ContPlataformas.Num() - 1);
 			Time = 0.f;
-			spawnsPlataformas -= 1;
+			spawnsPlataformas += 1;
 		}
 		
-	}*/
+
+	}
 	
 }
