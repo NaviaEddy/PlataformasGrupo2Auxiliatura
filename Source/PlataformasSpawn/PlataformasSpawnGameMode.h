@@ -24,6 +24,7 @@ public:
 
 private:
 	TArray<AActor*> ContPlataformas;
+	TArray<AActor*> ContCajas;
 	FVector Posicion;
 	float PosicionAuxiliar;
 	FRotator Rotacion;
@@ -33,6 +34,7 @@ private:
 	//Clases
 	class APlataformas* PT;
 	class ABarril* Ba;
+	class ACajasDisparo* Cd;
 };
 
 

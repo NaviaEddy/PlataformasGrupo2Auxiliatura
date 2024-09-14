@@ -72,7 +72,7 @@ void ABarril::NotifyHit(UPrimitiveComponent* MyComp, AActor* Other, UPrimitiveCo
 {
 	Super::NotifyHit(MyComp, Other, OtherComp, bSelfMoved, HitLocation, HitNormal, NormalImpulse, Hit);
 
-	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, FString::Printf(TEXT("Entro")));
+	//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, FString::Printf(TEXT("Entro")));
 
 	SpeedIncrease = 250.f;
 	FVector CurrentVelocity = BarrilMovement->Velocity;
